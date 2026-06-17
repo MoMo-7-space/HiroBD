@@ -1,0 +1,336 @@
+
+        /* တစ်ပြင်လုံးရဲ့ Background ကို Dark Grey ပြောင်းခြင်း */
+body {
+    background-color: #ecfeff;
+    font-family: 'Georgia', serif; /* ပုံထဲကလို font စောင်းစောင်းလေးရအောင် */
+    color: #18326e;
+}
+    
+        .bubble-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background:rgba(121, 188, 252, 0.904) ;
+            border-radius: 50%;
+            animation: floatUp 10s infinite linear;
+        }
+        .bubble:nth-child(1) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+            animation-duration: 12s;
+        }
+        .bubble:nth-child(2) {
+            left: 30%;
+            width: 10px;
+            height: 10px;
+            animation-delay: 2s;
+            animation-duration: 8s;
+        }
+        .bubble:nth-child(3) {
+            left: 55%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 4s;
+            animation-duration: 15s;
+        }
+        .bubble:nth-child(4) {
+            left: 75%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 1s;
+            animation-duration: 10s;
+        }
+        .bubble:nth-child(5) {
+            left: 90%;
+            width: 13px;
+            height: 13px;
+            animation-delay: 6s;
+            animation-duration: 7s;
+        }
+        @keyframes floatUp {
+            0% {
+               transform: translateY(0) scale(1); 
+               opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+/* ဘယ်ညာနှစ်ခြမ်းခွဲတဲ့ Container */
+.container {
+    display: flex;
+    max-width: 1000px;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* စာသားအပိုင်းကို ပုံစံသွင်းခြင်း */
+.text-section {
+    flex: 1;
+    font-size: 22px;
+    line-height: 1.8;
+    font-style: italic;
+    color: #18326e;
+}
+
+/* စာသားထဲက အရောင်ခွဲမယ့်နေရာများ */
+.highlight {
+    font-weight: normal;
+}
+.pink { color: #d48282; }
+.grey { color: #8a8a8a; }
+.purple-grey { color: #978da3; }
+.orange { color: #cca482; }
+.blue {color: #1b4097;}
+.black {color: #02050a;}
+/* ဓာတ်ပုံတွေထားမယ့် ညာဘက် Area */
+.gallery-section {
+    flex: 1;
+    position: relative;
+    height: 450px;
+}
+
+/* Polaroid ပုံစံ အဖြူရောင်ဘောင် ပြုလုပ်ခြင်း */
+.polaroid {
+    background: white;
+    padding: 10px 10px 25px 10px; /* အောက်ခြေကို Polaroid လိုမျိုး ပိုချန်ထားတယ် */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    position: absolute;
+    width: 140px;
+    transition: transform 0.3s ease;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* ပုံတစ်ပုံချင်းစီကို တစ်ခုနဲ့တစ်ခု ထပ်နေအောင်နဲ့ စောင်းနေအောင် နေရာချခြင်း */
+.img1 { top: 20px; left: 40px; transform: rotate(-8deg); z-index: 2; }
+.img2 { top: 30px; left: 160px; transform: rotate(5deg); z-index: 1; }
+.img3 { top: 10px; left: 270px; transform: rotate(-5deg); z-index: 3; }
+.img4 { top: 180px; left: 10px; transform: rotate(10deg); z-index: 4; }
+.img5 { top: 210px; left: 140px; transform: rotate(-3deg); z-index: 5; }
+.img6 { top: 170px; left: 260px; transform: rotate(7deg); z-index: 2; }
+
+/* Mouse တင်လိုက်ရင် ပုံလေးတွေ အပေါ်ကြွလာအောင် လုပ်ပေးထားတာ */
+.polaroid:hover {
+    transform: scale(1.1) rotate(0deg);
+    z-index: 10;
+    cursor: pointer;
+}
+.bg-landscape-video {
+    margin-left: 100px;
+    margin-top: 0%;
+    border-radius: 12px;
+    float: left;
+}
+button {
+    margin-left: 80px;
+    background-color: transparent ;
+    border-radius: 12px;
+    width: 400px;
+    height: 230px;
+    margin-top: 30px;
+    border-style: hidden;
+}
+/* ==========================================================================
+   Carousel (Slide ရှိုး) ကို အချိုးကျ ချုံ့ပြီး အလယ်ပို့ခြင်း
+   ========================================================================== */
+
+/* 🎯 Carousel ကြီးတစ်ခုလုံးရဲ့ အကျယ်ကို ကန့်သတ်ပြီး အလယ်တည့်တည့် ပို့တာပါ */
+#carouselExampleDark {
+    margin-top: 50px;
+    max-width: 900px !important; /* 👈 ပိုသေးချင်ရင် 400px၊ ကြီးချင်ရင် 600px စသဖြင့် စိတ်ကြိုက်ပြောင်းနိုင်ပါတယ် */
+    margin: 30px auto !important; /* 👈 အပေါ်အောက်ကို 30px ခွာပြီး ဘယ်ညာကို စခရင်ရဲ့ အလယ်တည့်တည့် ညှိပေးတာပါ */
+}
+
+/* 📸 အထဲက ဓာတ်ပုံတွေကို တစ်ပြေးညီ အမြင့်သတ်မှတ်ပြီး ထောင့်ဝိုင်းပေးတာပါ */
+#carouselExampleDark .carousel-item img {
+    height: 350px !important; /* 👈 ဓာတ်ပုံတွေရဲ့ အမြင့်ကို 350px ပုံသေထိန်းလိုက်တာပါ */
+    object-fit: cover !important; /* 👈 ဒါက အဓိကပါ! ပုံတွေ ပြားချပ်မသွားဘဲ Frame ထဲ ကွက်တိဖြစ်အောင် ဖြတ်ညှိပေးပါတယ် */
+    border-radius: 16px !important; /* 👈 သင့် Website စတိုင်အတိုင်း Slide ပုံတွေရဲ့ ထောင့်လေးတွေကို လှလှပပ ဝိုင်းလိုက်တာပါ */
+}
+    footer{
+        background-color: #d7f2f3;
+    }@media (max-width: 768px) {
+    /* ၁။ Navbar ကို Countdown ပုံစံအတိုင်း တစ်တန်းတည်း ညှိခြင်း */
+    header .nav {
+        justify-content: center !important;
+        flex-wrap: nowrap !important;
+        padding: 10px 0 !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+        gap: 2px !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    header .nav-item .nav-link {
+        font-size: 11px !important;
+        padding: 4px 6px !important;
+        font-weight: 500 !important;
+        white-space: nowrap !important;
+    }
+
+   /* ==========================================================================
+       ၂။ ဖုန်းမှာလည်း Laptop လိုမျိုး ဘယ်ညာ ယှဉ်တွဲပေါ်စေခြင်း
+       ========================================================================== */
+    .container {
+        display: flex !important;
+        flex-direction: row !important; /* အထက်အောက် မဖြစ်စေဘဲ Laptop လို ဘယ်ညာ ထားပါတယ် */
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px !important; /* ဖုန်းစခရင်အကျယ်အတွက် ကြားအကွာအဝေးကို ညှိထားပါတယ် */
+        min-height: auto !important;
+        padding: 10px !important;
+        width: 100% !important;
+        overflow: visible !important; /* ပုံစောင်းတွေ ဘေးဘောင်ပြတ်မသွားစေရန် */
+    }
+
+    /* ၃။ ဘယ်ဘက်က စာသားအပိုင်းကို ဖုန်းနဲ့အညီ ချုံ့ခြင်း */
+    .text-section {
+        flex: 1.2 !important; /* စာသားကို နေရာနည်းနည်းပိုပေးပါတယ် */
+        font-size: 11px !important; /* စာလုံးအရွယ်အစားကို ဖုန်းထဲဆံ့အောင် ချုံ့လိုက်ပါတယ် */
+        line-height: 1.5 !important;
+        text-align: left !important;
+    }
+
+    /* ၄။ ညာဘက်က Polaroid အစုအဝေး နေရာ */
+    .gallery-section {
+        flex: 0.8 !important;
+        position: relative !important;
+        height: 180px !important; /* ဖုန်းအတွက် အမြင့်ကို သင့်တော်သလို လျှော့ချပါတယ် */
+        width: 100%;
+    }
+
+    /* ၅။ Polaroid ပုံလေးများကို Laptop စတိုင်အတိုင်း စောင်းစောင်းလေးတွေ ဖြစ်စေခြင်း */
+    .polaroid {
+        position: absolute !important;
+        width: 55px !important; /* ဖုန်းစခရင်ထဲ ဝင်အောင် ပုံအကျယ်ကို သေးလိုက်ပါတယ် */
+        padding: 4px 4px 10px 4px !important; /* Polaroid အောက်ခြေ ပုံစံလေး ထိန်းထားပါတယ် */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        
+        /* 🎯 ချောမွေ့စွာ ကြွတက်လာစေရန် transition ထည့်သွင်းခြင်း */
+        transition: transform 0.3s ease, z-index 0.3s ease, box-shadow 0.3s ease !important;
+        cursor: pointer;
+    }
+
+    .polaroid img {
+        width: 100% !important;
+        height: 60px !important; /* ပုံရဲ့ မူရင်းအမြင့် */
+        object-fit: cover !important; /* ပုံတွေ ပြားမသွားဘဲ ကွက်တိဖြစ်အောင် ဖြတ်ညှိပေးပါတယ် */
+    }
+
+    /* 📸 ✨ ဖုန်းဗားရှင်းအတွက် Mouse တင်လိုက်ရင် (Hover) ပုံလေးတွေ တည့်ပြီး ကြွလာမည့်အပိုင်း ✨ */
+    .polaroid:hover {
+        transform: scale(1.15) rotate(0deg) !important; /* ပုံကို ၁.၁၅ ဆ ကြီးစေပြီး စောင်းတာကို တည့်ပေးပါတယ် */
+        z-index: 100 !important; /* ပုံကို အရှေ့ဆုံးလွှာသို့ ဆွဲတင်ပေးပါတယ် */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.4) !important; /* ကြွတတဖြစ်မှုကို ထင်ရှားစေရန် Shadow ပိုထည့်ပေးပါတယ် */
+    }
+
+    /* 📸 Laptop ကအတိုင်း ပုံတစ်ခုချင်းစီကို စောင်းပြီး ထပ်ပေးထားတဲ့ နေရာချမှု (ဖုန်းအရွယ်အစားညှိပြီး) */
+    .img1 { top: 10px;  left: 5px;   transform: rotate(-8deg) !important;  z-index: 2; }
+    .img2 { top: 15px;  left: 45px;  transform: rotate(5deg) !important;   z-index: 1; }
+    .img3 { top: 5px;   left: 85px;  transform: rotate(-5deg) !important;  z-index: 3; }
+    .img4 { top: 80px;  left: 0px;   transform: rotate(10deg) !important;  z-index: 4; }
+    .img5 { top: 90px;  left: 45px;  transform: rotate(-3deg) !important;  z-index: 5; }
+    .img6 { top: 75px;  left: 85px;  transform: rotate(7deg) !important;   z-index: 2; }
+    /* ၆။ အောက်က အခြား Elements များကို ဖုန်းအတွက် ညှိခြင်း */
+    .bg-landscape-video, button {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+        float: none !important;
+        width: 90% !important;
+    }
+    
+    button { height: auto !important; padding: 15px; }
+
+    iframe {
+        width: 90% !important;
+        height: 200px !important;
+        margin: 20px auto !important;
+        display: block !important;
+    }
+    h1 { font-size: 1.8rem !important; text-align: center; margin-left: 0 !important; }
+    h5 { text-align: center; margin: 10px !important; font-size: 0.9rem; }
+}
+@media (max-width: 768px) {
+    /* -----------------------------------------
+       ၁။ Carousel Caption စာသားများကို ဖုန်းတွင် ပြန်ပေါ်စေခြင်း
+       ----------------------------------------- */
+    .carousel-caption {
+        display: block !important;       /* Bootstrap က ဖုန်းမှာ ဖျောက်ထားတာကို အတင်းပြန်ပြခိုင်းတာပါ */
+        bottom: 10px !important;         /* စာသားကို ပုံရဲ့ အောက်ခြေနားကို ကပ်လိုက်ပါတယ် */
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+        left: 5% !important;             /* ဘယ်ညာ Space နည်းနည်းချန်ပါတယ် */
+        right: 5% !important;
+        background: rgba(0, 0, 0, 0.4);  /* စာသားကို ပိုထင်ရှားအောင် နောက်ခံအမည်းရောင် မှိန်မှိန်လေး ခံပေးလိုက်ပါတယ် */
+        border-radius: 8px;
+    }
+
+    /* -----------------------------------------
+       ၂။ Carousel ခေါင်းစဉ် (h5) စာလုံးအရွယ်အစား ညှိခြင်း
+       ----------------------------------------- */
+    .carousel-caption h5 {
+        font-size: 14px !important;      /* ဖုန်းစခရင်နဲ့အညီ စာလုံးအရွယ်အစား ချုံ့လိုက်ပါတယ် */
+        margin-bottom: 2px !important;
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+        color: #ffffff !important;       /* စာလုံးအရောင်ကို အဖြူရောင် အတင်းသတ်မှတ်ပါတယ် */
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.8); /* စာလုံးကို ပိုထင်ရှားစေရန် */
+    }
+
+    /* -----------------------------------------
+       ၃။ Carousel အညွှန်းစာ (p) စာလုံးအရွယ်အစား ညှိခြင်း
+       ----------------------------------------- */
+    .carousel-caption p {
+        font-size: 10px !important;      /* အညွှန်းစာကို အသေးဆုံး ညှိလိုက်ပါတယ် */
+        margin-bottom: 0 !important;
+        line-height: 1.3 !important;
+        color: #f0f0f0 !important;       /* စာလုံးအရောင် မှိန်မှိန်လေး */
+        display: -webkit-box;
+        -webkit-line-clamp: 2;           /* စာသား အရမ်းရှည်ရင် ၂ လိုင်းပဲပြပြီး အစက်ချဖို့ */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }@media (max-width: 768px) {
+    /* -----------------------------------------
+       Carousel ပုံတွေ ပြားမသွားဘဲ လှပစေရန် ပြင်ဆင်ခြင်း
+       ----------------------------------------- */
+    #carouselExampleDark .carousel-item img {
+        height: 200px !important;        /* ⚠️ ဖုန်းအတွက် သင့်တော်တဲ့ ပုံသေအမြင့်ကို သတ်မှတ်ပါတယ် */
+        width: 90% !important;          /* အကျယ်ကို မျက်နှာပြင်ပြည့် ထားပါတယ် */
+        align-items: center !important;
+        /* 📸 ✨ အဓိကပြင်ဆင်ချက်အပိုင်း ✨ 📸 */
+        object-fit: cover !important;    /* ⚠️ ဒါက အဓိကပါ! ပုံကို မပြားစေဘဲ Frame ထဲဝင်အောင် ဖြတ်ညှိပေးပါတယ် */
+        object-position: center !important; /* ပုံရဲ့ အလယ်ဗဟိုကို ဗဟိုပြုပြီး ဖြတ်ညှိစေပါတယ် */
+        margin-left: 20px !important;
+        border-radius: 8px !important;
+            /* ထောင့်လေးတွေကို အနည်းငယ် ဝိုင်းလိုက်တာပါ */
+    }
+}
+}

@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-color: #ecfeff;
+    color: #04203a;
+    min-height: 100vh;
+}
+
+.wishes-container {
+    display: flex;
+}
+
+/* --- ၁။ Laptop မှာပါ ဖောင်ဘေးပတ်ပတ်လည်ကို ဝိုင်းစေချင်ရင် (HTML container ပေါ်မူတည်လို့ အဆင်ပြေအောင် border-radius ထည့်ပေးထားပါတယ်) --- */
+.wish-form-section {
+    flex: 0 0 380px;
+    background: #d2fbfd;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.form-card { width: 100%; }
+
+.form-card h2 {
+    font-size: 30px;
+    margin-bottom: 6px;
+    background: linear-gradient(45deg, #325e88, #6aadeb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.form-subtitle {
+    font-size: 13px;
+    color: #071d3a;
+    margin-bottom: 25px;
+}
+
+.input-group { margin-bottom: 18px; }
+
+.input-group label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #0e284b;
+    margin-bottom: 6px;
+}
+.input-group input[type="text"], 
+.input-group textarea {
+    width: 100%;
+    background: #9bd8f0;
+    border: 1px solid #2e2e3f;
+    border-radius: 16px !important; /* 👈 !important ထည့်ပြီး ၁၆ ပစ်ဆယ်လောက်အထိ ကိတ်ကိတ်လေး ဝိုင်းလိုက်ပါ */
+    padding: 12px;
+    color: #0f104e;
+    font-size: 14px;
+    outline: none;
+}
+.custom-file-upload {
+    display: block !important;       /* 👈 block ပြောင်းမှ အောက်ကို ဆင်းမှာပါ */
+    width: fit-content !important;   /* ခလုတ်ကို စာသားအလိုက်ပဲ အကျယ်ယူခိုင်းတာ */
+    padding: 10px 18px;
+    background: #a6e5f8;
+    border-radius: 16px !important; 
+    cursor: pointer;
+    font-size: 13px;
+    margin-bottom: 8px;              /* အောက်က စာသားနဲ့ မကပ်အောင် space ချန်တာ */
+}
+
+#imageUpload { display: none; }
+.file-status {
+    font-size: 12px; 
+    color: #72757e; 
+    margin-top: 5px; 
+    display: block !important;        /* 👈 block အဖြစ် အတင်းသတ်မှတ်ပါတယ် */
+    text-align: left !important;     /* ဘယ်ဘက်ကို ကပ်ထားမယ် */
+}
+.submit-btn {
+    width: 100%;
+    background: linear-gradient(45deg, #7bf0ff, #66e2dc);
+    color: #141f5e;
+    border: none;
+    padding: 12px;
+    border-radius: 16px !important; /* 👈 ဒီမှာလည်း !important ထည့်ပေးပါ */
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.wish-gallery-section {
+    flex: 1;
+    margin-left: 380px;
+    padding: 40px;
+}
+
+.gallery-title {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #173358;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+}
+
+/* --- ၅။ Laptop ပေါ်က Wishes Board ထဲက Polaroid ကတ်လေးတွေကို ဝိုင်းတာ --- */
+.polaroid-card {
+    background: #ffffff;
+    padding: 10px 10px 14px 10px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    border-radius: 12px !important;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 250px; /* 👈 Laptop ပေါ်မှာ ကတ်တွေရဲ့ အမြင့်ကို တစ်ပြေးညီ ပုံသေ သတ်မှတ်လိုက်တာပါ */
+}
+
+.polaroid-card img {
+    width: 100%;
+    height: 180px; /* 👈 ပုံရဲ့ အမြင့်ကိုလည်း ကွက်တိ ထိန်းထားပါတယ် */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+.polaroid-card:hover {
+    transform: scale(1.08) rotate(0deg) !important;
+    z-index: 5;
+}
+
+
+.polaroid-text { color: #232323; text-align: center; }
+
+.polaroid-text .message {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    word-wrap: break-word;
+}
+
+.polaroid-text .sender {
+    font-size: 10px;
+    color: #666;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .wishes-container { flex-direction: column; }
+    .wish-form-section { position: relative; width: 100%; height: auto; }
+    .wish-gallery-section { margin-left: 0; padding: 25px; }
+}
+
+/* ==========================================================================
+   မိုဘိုင်းဖုန်းနှင့် Tablet များအတွက် (Screen Width <= 768px) Responsive Code
+   ========================================================================== */
+@media (max-width: 768px) {
+    .nav {
+        justify-content: center !important;
+        padding: 5px 0 !important;
+        gap: 2px !important;
+    }
+
+    .nav-item .nav-link {
+        font-size: 0.75rem !important;
+        padding: 5px 6px !important;
+        white-space: nowrap !important;
+    }
+
+    .wishes-container {
+        display: flex !important;
+        flex-direction: column !important; 
+        width: 100% !important;
+    }
+
+    .wish-form-section {
+        position: relative !important;
+        width: 100% !important;
+        flex: none !important;
+        padding: 25px 20px !important;
+        height: auto !important;
+        left: 0 !important;
+        border-right: none !important;
+        border-bottom: 2px solid #bcecf0;
+    }
+
+    .form-card h2 {
+        font-size: 24px !important;
+    }
+
+    .wish-gallery-section {
+        margin-left: 0 !important; 
+        padding: 30px 15px !important;
+        width: 100% !important; 
+        display: block !important;
+    }
+
+    .gallery-title {
+        font-size: 24px !important;
+        text-align: center;
+        margin-bottom: 25px !important;
+        color: #173358 !important;
+    }
+
+    .gallery-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 15px !important;
+        width: 100% !important;
+    }
+
+    .polaroid-card {
+        width: 100% !important;
+        padding: 8px 8px 14px 8px !important;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15) !important;
+        border-radius: 12px !important; 
+        overflow: hidden !important; 
+    }
+    
+    .polaroid-card img {
+        width: 100% !important;
+        aspect-ratio: 1 / 1 !important;
+        object-fit: cover !important;
+    }
+
+    .polaroid-text .message {
+        font-size: 14px !important;
+        margin-bottom: 4px !important;
+    }
+
+    .polaroid-text .sender {
+        font-size: 9px !important;
+    }
+    
+    .input-group input[type="text"], 
+    .input-group textarea {
+        border-radius: 12px !important; 
+    }
+    
+}

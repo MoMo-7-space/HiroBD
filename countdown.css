@@ -1,0 +1,175 @@
+
+        body {
+            background-color: #ecfeff; /* မူရင်း Theme နဲ့ တူညီတဲ့ နောက်ခံအရောင် */
+            position: relative;
+            overflow-x: hidden;
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* -----------------------------------------
+           ၁။ Background Floating Bubbles
+        ----------------------------------------- */
+        .bubble-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(121, 188, 252, 0.904);
+            border-radius: 50%;
+            animation: floatUp 10s infinite linear;
+        }
+        .bubble:nth-child(1) { left: 10%; width: 20px; height: 20px; animation-delay: 0s; animation-duration: 12s; }
+        .bubble:nth-child(2) { left: 30%; width: 10px; height: 10px; animation-delay: 2s; animation-duration: 8s; }
+        .bubble:nth-child(3) { left: 55%; width: 25px; height: 25px; animation-delay: 4s; animation-duration: 15s; }
+        .bubble:nth-child(4) { left: 75%; width: 15px; height: 15px; animation-delay: 1s; animation-duration: 10s; }
+        .bubble:nth-child(5) { left: 90%; width: 13px; height: 13px; animation-delay: 6s; animation-duration: 7s; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+        }
+
+        /* -----------------------------------------
+           ၂။ TikTok Video Layout စတိုင်
+        ----------------------------------------- */
+        .countdown-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 75vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* ကိန်းဂဏန်းများ ပြသမည့် Area */
+        .countdown-display {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .time-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 100px;
+        }
+        /* ၎င်းအောက်က DAYS, HOURS စာသားလေးများ */
+        .time-label {
+            font-size: 0.9rem;
+            color: #9ca3af; /* မီးခိုးဖျော့ */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+        /* "Moments in Time" နေရာအတွက် စတိုင် */
+.countdown-title {
+    font-family: 'DM Serif Display', serif; /* ပုံထဲကလို ထောင့်ချွန်လေးတွေနဲ့ Serif Typeface */
+    font-size: 4.2rem;
+    font-weight: 400;
+    font-style: italic; /* ပုံထဲကလို စာသားကို အစောင်းလေး လုပ်ချင်ရင် ဒါလေးသုံးပါ */
+    color: #18326e; /* ပုံထဲကလို အပြာရောင် ခပ်တောက်တောက်လေး */
+    margin-bottom: 35px;
+    letter-spacing: 0.5px;
+}
+
+/* အပြာနုရောင် နာရီဂဏန်းကြီးများအတွက် စတိုင် */
+.time-number {
+    font-family: 'Playfair Display', serif; /* ဂဏန်းပုံစံကို ပိုပြီး Elegant ဖြစ်စေမယ့် Font */
+    font-size: 6rem;
+    font-weight: 700;
+    color: #60a5fa; /* TikTok ထဲကလို အပြာနုရောင် */
+    line-height: 1;
+}
+
+/* ကြားက ကော်လံ (:) အစက်လေးများ */
+.time-colon {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    font-weight: 700;
+    color: #60a5fa;
+    line-height: 1;
+    padding-bottom: 30px;
+}
+/* ==========================================================================
+           မိုဘိုင်းဖုန်းနှင့် Tablet များအတွက် (Screen Width <= 768px) Responsive Code
+           ========================================================================== */
+        @media (max-width: 768px) {
+            
+            /* ၁။ Navigation Bar ကို အလယ်ရွှေ့ပြီး စာသားများ အံကိုက်ဖြစ်အောင် ညှိခြင်း */
+            .nav {
+                justify-content: center !important;
+                padding: 5px 0 !important;
+                gap: 2px !important;
+            }
+
+            .nav-item .nav-link {
+                font-size: 0.75rem !important;
+                padding: 5px 6px !important;
+                white-space: nowrap !important;
+            }
+
+            /* ၂။ Countdown တစ်ခုလုံးစာ Container ကို စခရင်အပြည့်ယူပြီး အလယ်ညှိခြင်း (Whitespace ပျောက်စေရန်) */
+            .countdown-container {
+                height: 80vh !important; /* အောက်မှာ ကွက်လပ်ကြီးတွေ မကျန်အောင် စခရင်ရဲ့ 80% အမြင့် ပုံသေယူလိုက်တာပါ */
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: center !important; /* အပေါ်အောက် အလယ်တည့်တည့် ရောက်စေပါတယ် */
+                align-items: center !important;
+                padding: 10px !important;
+                margin-top: 0 !important; /* အပေါ်က margin ကြောင့် အောက်ကျမသွားအောင် ၀ ထားလိုက်ပါတယ် */
+            }
+            /* ၃။ ထိပ်ဆုံးက Title ထဲက Waiting For ကို အနည်းငယ် သေးလိုက်ပြီး */
+            .countdown-title {
+                font-size: 1.6rem !important; /* Waiting For ကို 1.6rem ပဲ ထားလိုက်ပါတယ် */
+                line-height: 1.4 !important;
+                margin-bottom: 25px !important;
+            }
+
+            /* Our Favourite Day ကိုတော့ ဖုန်းထဲမှာ ထင်ထင်ရှားရှား ပိုကြီးလိုက်တာပါ 🚀 */
+            .countdown-title .fav-day {
+                display: block; /* စာသားကို အောက်တစ်ကြောင်း ဆင်းပေးတာမို့ ပိုကြည့်ကောင်းသွားပါမယ် */
+                font-size: 2.6rem !important; /* 1.6rem ထက် အများကြီးကြီးတဲ့ 2.6rem ပြောင်းလိုက်တာပါ */
+                font-weight: bold !important;
+                color: #18326e !important; /* အရောင်ကို ပိုတောက်အောင် ထိန်းထားပါတယ် */
+                margin-top: 5px;
+            }
+            /* ၄။ နာရီဂဏန်းကြီးများ ဘေးတိုက်ပြရင် မဆံ့သည့်အတွက် Layout ညှိခြင်း */
+            .countdown-display {
+                gap: 5px !important; /* အကွာအဝေးကို ကျဉ်းလိုက်ပါတယ် */
+            }
+
+            .time-block {
+                min-width: 65px !important; /* ဘေးတိုက်ဆံ့အောင် block အကျယ်ကို လျှော့လိုက်ပါတယ် */
+            }
+
+            /* ၅။ နာရီဂဏန်း အရွယ်အစားကို ဖုန်း Screen ပေါ်မှာ လှပအောင် ချုံ့ခြင်း */
+            .time-number {
+                font-size: 2.5rem !important; /* 6rem ကနေ ဖုန်းနဲ့ ကွက်တိဖြစ်အောင် 2.5rem ပြောင်းလိုက်ပါတယ် */
+            }
+
+            /* ၆။ ကြားက ကော်လံ (:) အစက်လေးများ အရွယ်အစား ညှိခြင်း */
+            .time-colon {
+                font-size: 2.2rem !important;
+                padding-bottom: 20px !important;
+            }
+
+            /* ၇။ အောက်က DAYS, HOURS စာသားလေးများ အရွယ်အစား */
+            .time-label {
+                font-size: 0.7rem !important;
+                letter-spacing: 1px !important;
+                margin-top: 4px !important;
+            }
+        }

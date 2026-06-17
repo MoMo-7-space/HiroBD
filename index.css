@@ -1,0 +1,346 @@
+
+        /* Intro Screen တစ်ခုလုံးကို အနက်ရောင်/အပြာမှောင် အုပ်ထားတာပါ */
+        #intro-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #030712; /* Dark background */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999; /* အားလုံးရဲ့ အပေါ်ဆုံးမှာ ရှိနေဖို့ */
+        cursor: pointer;
+        overflow: hidden;
+        font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* "I Love You" စာသားစတိုင် */
+        .intro-title {
+        color: #60a5fa;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-shadow: 0 0 20px rgba(96, 165, 250, 0.6);
+        animation: pulse 2s infinite alternate;
+        }
+
+        /* နှလုံးသားဆွဲမယ့် Canvas */
+        #heartCanvas {
+        width: 300px;
+        height: 300px;
+        }
+
+        /* အောက်က စာသားအမှိတ်အမှိတ်စတိုင် */
+        .intro-hint {
+        color: #f5f7fa;
+        margin-top: 20px;
+        font-size: 0.9rem;
+        animation: blink 1.5s infinite;
+        }
+
+        /* စာသားတွေ အသက်ဝင်အောင် ကစားထားတဲ့ Animation များ */
+        @keyframes pulse {
+        0% { transform: scale(1); opacity: 0.8; }
+        100% { transform: scale(1.05); opacity: 1; }
+        }
+        @keyframes blink {
+        0%, 100% { opacity: 0.3; }
+        50% { opacity: 1; }
+        }
+        .nav-item {
+            color: aliceblue;
+        }
+        body{
+            background-color: #ecfeff;
+            position: relative;
+            overflow-x: hidden;
+            margin: 0;
+        }
+        .bubble-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background:rgba(121, 188, 252, 0.904) ;
+            border-radius: 50%;
+            animation: floatUp 10s infinite linear;
+        }
+        .bubble:nth-child(1) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+            animation-duration: 12s;
+        }
+        .bubble:nth-child(2) {
+            left: 30%;
+            width: 10px;
+            height: 10px;
+            animation-delay: 2s;
+            animation-duration: 8s;
+        }
+        .bubble:nth-child(3) {
+            left: 55%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 4s;
+            animation-duration: 15s;
+        }
+        .bubble:nth-child(4) {
+            left: 75%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 1s;
+            animation-duration: 10s;
+        }
+        .bubble:nth-child(5) {
+            left: 90%;
+            width: 13px;
+            height: 13px;
+            animation-delay: 6s;
+            animation-duration: 7s;
+        }
+        @keyframes floatUp {
+            0% {
+               transform: translateY(0) scale(1); 
+               opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-110vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+        .hero-box-container {
+            display: flex;
+            flex-direction: row;
+            height: 550px;
+            margin-top: 30px;
+            float: left;
+        }
+        .hiro-box {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            animation: justSwayAndWobble 4s ease-in-out infinite;
+            float: inline-start;
+            margin-left: 3.5cm;
+        }
+        .hiro-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            float: left;
+        }
+        @keyframes justSwayAndWobble {
+            0%, 100% {
+                transform: rotate(0deg) scale(1);
+            }
+            25% {
+                transform: rotate(-6deg) scale(1.02);
+            }
+            50% {
+                transform: rotate(0deg) scale(0.99);
+            }
+            75% {
+                transform: rotate(6deg) scale(1.02);
+            }
+        }
+.music-player {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            cursor: pointer;
+            user-select: none;
+            border: 1.5px solid #e5e7eb;
+            
+            position: fixed;
+            bottom: 30px;
+            right: 450px;
+            width: 380px;
+            height: 100px;
+            z-index: 100;
+        }
+
+        .vinyl-disc {
+            width: 65px;
+            height: 65px;
+            background: #111827;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+            animation: spinVinyl 3s linear infinite;
+            animation-play-state: paused;
+        }
+
+        .vinyl-center {
+            width: 12px;
+            height: 12px;
+            background: #ffffff;
+            border-radius: 50%;
+        }
+
+        .track-info {
+            margin-left: 40px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .song-title {
+            margin: 0;
+            font-weight: 500;
+            color: #082a61;
+            font-size: 1.3rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-style: italic;
+        }
+
+        .player-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 4px;
+        }
+
+        .control-btn {
+            font-size: 1rem;
+            color: #162c57;
+            transition: color 0.2s;
+        }
+        .control-btn:hover {
+            color: #3b82f6;
+        }
+
+        @keyframes spinVinyl {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }@media (max-width: 768px) {
+    
+    /* ၁။ Nav Bar စာသားတွေ ထပ်မနေအောင်နှင့် အလယ်ကျအောင် ညှိခြင်း */
+    .nav {
+        justify-content: center !important;
+        padding: 5px 0 !important;
+        gap: 2px !important;
+    }
+
+    .nav-item .nav-link {
+        font-size: 0.75rem !important;
+        padding: 5px 6px !important;
+        white-space: nowrap !important;
+    }
+
+    /* ၂။ စာသားပုံကို အပေါ်ပို့၊ လူပုံကို အောက်ချပြီး အလယ်တည့်တည့် ချိန်ခြင်း */
+    .hero-box-container {
+        display: flex !important;
+        flex-direction: column-reverse !important; /* စာသားပုံကို အပေါ်၊ လူပုံကို အောက် ရွှေ့ပေးတဲ့အချက်ပါ */
+        justify-content: center !important;
+        align-items: center !important; /* အလယ်တည့်တည့် ရောက်အောင် ထိန်းတာပါ */
+        gap: 30px !important;
+        padding: 40px 10px !important;
+        height: auto !important;
+        margin-top: 20px !important;
+        float: none !important;
+    }
+
+    /* ၃။ လူပုံ (အောက်ရောက်သွားမည့်ပုံ) ရဲ့ အရွယ်အစားကို အလယ်ညှိခြင်း */
+    .hiro-box {
+        width: 260px !important;
+        height: 260px !important;
+        margin-left: 0 !important;
+        float: none !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .hiro-image {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important;
+    }
+
+    /* ၄။ စာသားပုံ (အပေါ်ရောက်လာမည့်ပုံ) ရဲ့ အရွယ်အစားကို အလယ်ညှိခြင်း */
+    .messagee {
+        float: none !important;
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    .message {
+        width: 320px !important; /* စာသားပုံ ဖုန်းနဲ့ အံကိုက်ဖြစ်အောင် အရွယ်အစားပါ */
+        height: auto !important;
+    }
+
+    /* ၅။ Intro Screen အချိုးအစား ညှိခြင်း */
+    .intro-title {
+        font-size: 1.6rem !important;
+        margin-bottom: 15px;
+    }
+    #heartCanvas {
+        width: 200px !important;
+        height: 200px !important;
+    }
+    .intro-hint {
+        font-size: 0.8rem !important;
+    }
+
+    /* ၆။ Music Player ကို အောက်ခြေအလယ်မှာ ကပ်ထားခြင်း */
+    .music-player {
+        position: fixed !important;
+        bottom: 100px !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translateX(-50%) !important;
+        width: 80% !important;
+        height: 70px !important;
+        padding: 8px 15px !important;
+    }
+
+    .vinyl-disc {
+        width: 45px !important;
+        height: 45px !important;
+    }
+
+    .vinyl-center {
+        width: 10px !important;
+        height: 10px !important;
+    }
+
+    .track-info {
+        margin-left: 15px !important;
+    }
+
+    .song-title {
+        font-size: 0.9rem !important;
+    }
+
+    .control-btn {
+        font-size: 0.9rem !important;
+    }
+
+}

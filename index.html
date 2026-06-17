@@ -10,51 +10,52 @@
 </head>
 <body>
     <div id="intro-screen">
-  <h1 class="intro-title">HAPPY HIRO'S BIRTHDAY!!!</h1>
-  <canvas id="heartCanvas"></canvas>
-  <p class="intro-hint">💙...Click Anywhere to Follow the Heartbeats... 💙</p>
-</div>
-
-<div id="main-content" style="display: none;">
-  </div>
-    <header>
-        <ul class="nav justify-content-end p-2">
-            <li class="nav-item"><a class="nav-link" href="index.html">​🏠 Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="about.html">✨ Meet Hiro</a></li>
-            <li class="nav-item"><a class="nav-link" href="wishes.html">🎈 Wishes</a></li>
-            <li class="nav-item"><a class="nav-link active" href="countdown.html">⏳Countdown</a></li>
-        </ul>
-    </header>
-    <div class="bubble-wrapper">
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
+        <h1 class="intro-title">HAPPY HIRO'S BIRTHDAY!!!</h1>
+        <canvas id="heartCanvas"></canvas>
+        <p class="intro-hint">💙...Click Anywhere to Follow the Heartbeats... 💙</p>
     </div>
-    <div class="hero-box-container">
-        <div class="hiro-box">
-            <img src="photo/photo_2026-05-27_12-14-53-removebg-preview.png" alt="photo" class="hiro-image">
-        </div>
-        <div class="messagee">
-            <img src="photo/photo_2026-05-27_12-46-23-removebg-preview.png" alt="m" class="message">
 
+    <div id="main-content" style="display: none;">
+        <header>
+            <ul class="nav justify-content-end p-2">
+                <li class="nav-item"><a class="nav-link" href="index.html">🏠 Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">✨ Meet Hiro</a></li>
+                <li class="nav-item"><a class="nav-link" href="wishes.html">🎈 Wishes</a></li>
+                <li class="nav-item"><a class="nav-link active" href="countdown.html">⏳Countdown</a></li>
+            </ul>
+        </header>
+
+        <div class="bubble-wrapper">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
         </div>
-        <div class="music-player" onclick="toggleMusic()">
-        <div class="vinyl-disc" id="vinyl">
-            <div class="vinyl-center"></div>
-        </div>
-        <div class="track-info">
-            <p class="song-title">Birthday Song For Hiro💙</p>
-            <div class="player-controls">
-                <span class="control-btn">⏮</span>
-                <span class="control-btn" id="status-text" style="font-size: 1rem; font-weight: bold;">▶</span>
-                <span class="control-btn">⏭</span>
+
+        <div class="hero-box-container">
+            <div class="hiro-box">
+                <img src="photo/photo_2026-05-27_12-14-53-removebg-preview.png" alt="photo" class="hiro-image">
+            </div>
+            <div class="messagee">
+                <img src="photo/photo_2026-05-27_12-46-23-removebg-preview.png" alt="m" class="message">
+            </div>
+            
+            <div class="music-player" onclick="toggleMusic()">
+                <div class="vinyl-disc" id="vinyl">
+                    <div class="vinyl-center"></div>
+                </div>
+                <div class="track-info">
+                    <p class="song-title">Birthday Song For Hiro💙</p>
+                    <div class="player-controls">
+                        <span class="control-btn">⏮</span>
+                        <span class="control-btn" id="status-text" style="font-size: 1rem; font-weight: bold;">▶</span>
+                        <span class="control-btn">⏭</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <audio id="bg-music" src="audio/Happy birthday song !!!!.mp3"></audio>
-<script type="module" src="index.js"></script>
+    </div> <audio id="bg-music" src="audio/Happy birthday song !!!!.mp3"></audio>
+    <script type="module" src="index.js"></script>
 </body>
 </html>

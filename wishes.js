@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     "${shortMessage}"
                 </div>
                 <div class="card-footer-sender" style="border-top: 1px dashed #e2e8f0; margin-top: 10px; padding-top: 8px;">
-                    <p class="sender" style="font-size: 13px; color: #ff6b81; font-weight: 600; text-align: right; margin: 0;">- From ${data.name}</p>
+                    <p class="sender" style="font-size: 13px; color: #173358; font-weight: 600; text-align: right; margin: 0;">- From ${data.name}</p>
                 </div>
             `;
 
